@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button";
 import Clips from "../utils/Clips";
+import SocialLink from "../utils/SocialLink";
 
 const Hero = ({
   heroapi: { title, subtitle, btntext, img, sociallinks, videos },
@@ -19,21 +20,26 @@ const Hero = ({
               {subtitle}
             </h1>
             <Button
-              type='button'
-              style="bg-slate-200 shadow-slate-200 rounded-xl my-5 " label={btntext} />
+              type="button"
+              style="bg-slate-200 shadow-slate-200 rounded-xl my-5 "
+              label={btntext}
+            />
 
-            <div className="">
+            <div className=" grid items-center gap-5 md:gap-3 absolute top-[33vh] lg:top-[27vh] left-[11%] xl:left-0 w-auto h-auto ">
               {videos?.map((val, i) => (
-                <Clips key={i}
-                  imgsrc={val.imgsrc}
-                  clip={val.clip}
-                />
-
+                <Clips key={i} imgsrc={val.imgsrc} clip={val.clip} />
               ))}
             </div>
+            <div className=" grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3">{sociallinks?.map((val, i) => (
+              <SocialLink key={i} icon={val.icon} />
+            ))}</div>
           </div>
-          <div className="">
-            <img className="w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme  -rotate-[25deg] hover:rotate-0 cursor-pointer object-fill" src={img} alt="hero/img" />
+          <div className="flex items-center">
+            <img
+              className="w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme  -rotate-[25deg] hover:rotate-0 cursor-pointer object-fill"
+              src={img}
+              alt="hero/img"
+            />
           </div>
         </div>
       </div>
