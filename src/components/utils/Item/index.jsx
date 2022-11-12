@@ -2,13 +2,30 @@ import React from "react";
 import { AiFillStar, AiFillShopping } from "react-icons/ai";
 import Button from "../../Button";
 
-const Item = ({ id, color, shadow, title, text, img, btn, rating, price }) => {
+const Item = ({
+  ifExists,
+  id,
+  color,
+  shadow,
+  title,
+  text,
+  img,
+  btn,
+  rating,
+  price,
+}) => {
   return (
     <>
       <div
-        className={`relative bg-gradient-to-b ${color} ${shadow} grid items-center justify-items-center rounded-xl py-4 px-5 transition-all duration-700 ease-in-out w-full hover:scale-105`}
+        className={`relative bg-gradient-to-b ${color} ${shadow} grid items-center  ${
+          ifExists ? "justify-items-start" : "justify-items-center"
+        } rounded-xl py-4 px-5 transition-all duration-700 ease-in-out w-full hover:scale-105`}
       >
-        <div className="grid items-center justify-items-center">
+        <div
+          className={`grid items-center ${
+            ifExists ? "justify-items-start" : "justify-items-center"
+          }`}
+        >
           <h1 className="text-slate-200 text-xl lg:text-lg md:text-base font-medium filter drop-shadow">
             {title}
           </h1>
@@ -41,11 +58,19 @@ const Item = ({ id, color, shadow, title, text, img, btn, rating, price }) => {
             />
           </div>
         </div>
-        <div>
+        <div
+          className={`flex items-center ${
+            ifExists ? "absolute top-5 right-1" : "justify-center"
+          }`}
+        >
           <img
-            className="h-36 w-64 trasitions-theme hover:-rotate-12"
+            className={` transitions-theme hover:-rotate-12 ${
+              ifExists
+                ? "h-auto w-64 lg:w-56 md:w-48 -rotate-[35deg]"
+                : "h-36 w-64"
+            }`}
             src={img}
-            alt="img/item-img"
+            alt={`img/item-img/${id}`}
           />
         </div>
       </div>
