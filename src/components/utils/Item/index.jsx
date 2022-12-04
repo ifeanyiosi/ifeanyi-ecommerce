@@ -1,5 +1,7 @@
 import React from "react";
 import { AiFillStar, AiFillShopping } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { setAddItemToCart } from "../../../app/CartSlice";
 import Button from "../../Button";
 
 const Item = ({
@@ -14,6 +16,11 @@ const Item = ({
   rating,
   price,
 }) => {
+  const dispatch = useDispatch();
+  const onAddToCart = () => {
+    const item = { id, color, shadow, title, text, img, price };
+    dispatch(setAddItemToCart(item));
+  };
   return (
     <>
       <div
@@ -48,14 +55,22 @@ const Item = ({
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Button
-              style={`bg-white px-7 py-1 rounded active: scale-90 transition-all duration-100 ease-in-out shadow-md sm:text-sm bg-white/50 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-50 opacity-100 z-[100] shadow-sm shadow-slate-100 transition-all duration-300 p-[0.5] shadow shadow-sky-200 flex items-center justify-center`}
-              prefix={
-                <AiFillShopping className="h-6 w-6 sm:h-5 sm:w-5 cursor-pointer transition-all duration-100 active:scale-110 leading-tight text-slate-900" />
-              }
+            <button
               type="button"
-              label={btn}
-            />
+              className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-sky-200"
+              onClick={() => onAddToCart()}
+            >
+              <AiFillShopping className="icon-style text-slate-900" />
+            </button>
+            <button
+              type="button"
+              className="bg-white/90 blur-effect-theme button-theme px-2 py-1 shadow shadow-sky-200 text-sm text-black"
+              onClick={() => {
+                onAddToCart();
+              }}
+            >
+              {btn}
+            </button>
           </div>
         </div>
         <div

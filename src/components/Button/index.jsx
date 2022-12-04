@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const Button = ({type,prefix, label, style}) => {
+const Button = ({ type, prefix, label, style, onClick }) => {
   return (
     <button
+      onClick={onClick}
       type={type}
       className={`px-7 py-1 rounded active: scale-90 transition-all duration-100 ease-in-out shadow-md sm:text-sm ${style}`}
     >
@@ -10,6 +11,6 @@ const Button = ({type,prefix, label, style}) => {
       <span>{label}</span>
     </button>
   );
-}
+};
 
-export default Button
+export default Button;
