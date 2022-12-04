@@ -2,7 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { AiFillHeart } from "react-icons/ai";
-import { GiCloak } from "react-icons/gi";
+import { BsFillClockFill } from "react-icons/bs";
 import { truncate } from "lodash";
 import { Title } from "../utils";
 
@@ -46,11 +46,11 @@ const Stories = ({ story: { title, news } }) => {
                       <span className="text-xs font-bold">{val.like}</span>
                     </div>
                     <div className="flex items-center gap-0.5">
-                      <GiCloak className=" w-4 h-4 text-black" />
+                      <BsFillClockFill className=" w-4 h-4 text-black" />
                       <span className="text-xs font-bold">{val.time}</span>
                     </div>
                     <div className="flex items-center gap-0.5">
-                      <GiCloak className=" text-blue-600" />
+                      <BsFillClockFill className=" text-blue-600" />
                       <span className="text-xs font-bold text-blue-600">
                         {val.by}
                       </span>
