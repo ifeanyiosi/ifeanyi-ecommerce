@@ -1,11 +1,16 @@
 import React from "react";
 import Button from "../Button";
 
-const FlexContent = ({ ifExists, endpoint: { heading, title, text, btn, url, img } }) => {
+const FlexContent = ({
+  ifExists,
+  endpoint: { heading, title, text, btn, url, img },
+}) => {
   return (
     <>
       <div
-        className={`flex items-center justify-between lg:flex-col lg:justify-center nike-container ${ifExists ? 'flex-row-reverse' : 'flex-row'}`}
+        className={`flex items-center justify-between lg:flex-col lg:justify-center nike-container ${
+          ifExists ? "flex-row-reverse" : "flex-row"
+        }`}
       >
         <div className="max-w-lg lg:max-w-none w-full md:text-center grid items-center lg:justify-items-center">
           <h1 className="text-4xl sm:text-3xl font-bold text-gradient ">
@@ -15,12 +20,28 @@ const FlexContent = ({ ifExists, endpoint: { heading, title, text, btn, url, img
             {title}
           </h1>
           <p className="xl:text-sm my-4 text-slate-900"> {text} </p>
-          <a href={url} className="flex items-center" target={"_blank"} role="button">
-            <Button style="bg-slate-900 shadow-slate-9 text-slate-100 py-1.5" label={btn} />
+          <a
+            href={url}
+            className="flex items-center"
+            target={"_blank"}
+            role="button"
+          >
+            <Button
+              style="bg-slate-900 shadow-slate-9 text-slate-100 py-1.5"
+              label={btn}
+            />
           </a>
         </div>
         <div className="flex items-center justify-center max-w-xl relative lg:max-w-none w-full">
-          <img className={`w-auto object-fill transition-theme `} src={img} alt={`img/${heading}`} />
+          <img
+            className={`w-auto object-fill transition-theme ${
+              ifExists
+                ? "h-60 lg:h-56 md:h-52 sm:h-44 xsm:h-36 rotate-6 hover:-rotate-12"
+                : "h-72 lg:h-64 md:60 sm:h-48 xsm:h-40 rotate-[19deg] hover:rotate-12"
+            } `}
+            src={img}
+            alt={`img/${heading}`}
+          />
         </div>
       </div>
     </>
