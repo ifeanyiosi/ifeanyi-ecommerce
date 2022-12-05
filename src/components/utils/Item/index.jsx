@@ -2,7 +2,6 @@ import React from "react";
 import { AiFillStar, AiFillShopping } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { setAddItemToCart } from "../../../app/CartSlice";
-import Button from "../../Button";
 
 const Item = ({
   ifExists,
