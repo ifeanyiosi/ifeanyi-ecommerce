@@ -21,7 +21,7 @@ const Hero = ({
             </h1>
             <Button
               type="button"
-              style="bg-slate-200 shadow-slate-200 rounded-xl my-5 "
+              style={`bg-slate-200 shadow-slate-200 rounded-xl my-5 `}
               label={btntext}
             />
 
